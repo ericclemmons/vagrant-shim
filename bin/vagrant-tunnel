@@ -2,11 +2,26 @@
 <?php
 
 use Symfony\Component\Console\Application;
+use Vagrant\Tunnel\Manager\TunnelManager;
+use Vagrant\Tunnel\Command\DisableCommand;
+use Vagrant\Tunnel\Command\EnableCommand;
 use Vagrant\Tunnel\Command\InstallCommand;
+use Vagrant\Tunnel\Command\RunCommand;
+use Vagrant\Tunnel\Command\ShimCommand;
+use Vagrant\Tunnel\Command\UninstallCommand;
 
 $loader = require __DIR__.'/../vendor/autoload.php';
 $loader->add('Vagrant\\Tunnel', __DIR__.'/../src');
 
 $console = new Application();
-$console->add(new InstallCommand());
+$manager = new TunnelManager($_SERVER['HOME'].'/.vagrant-tunnel');
+$manager->registerCommands($console, array(
+    new DisableCommand(),
+    new EnableCommand(),
+    new InstallCommand(),
+    new RunCommand(),
+    new ShimCommand(),
+    new UninstallCommand(),
+));
+
 $console->run();
