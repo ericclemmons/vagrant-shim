@@ -79,6 +79,28 @@ class ShimManager
         return $this->shimRoot.'/'.$program;
     }
 
+    public function getShimRoot()
+    {
+        return $this->shimRoot;
+    }
+
+    public function getShims()
+    {
+        $root   = $this->getShimRoot();
+        $files  = array_map(function($file) use ($root) {
+            return $root.'/'.$file;
+        }, scandir($root));
+
+        $shims  = array();
+        foreach ($files as $file) {
+            if (is_file($file) && is_executable($file)) {
+                $shims[$file] = basename($file);
+            }
+        }
+
+        return $shims;
+    }
+
     public function getShimStub()
     {
         $stub = <<<BASH

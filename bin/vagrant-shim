@@ -6,6 +6,7 @@ use Vagrant\Shim\Manager\ShimManager;
 use Vagrant\Shim\Command\DisableCommand;
 use Vagrant\Shim\Command\EnableCommand;
 use Vagrant\Shim\Command\InstallCommand;
+use Vagrant\Shim\Command\ListCommand;
 use Vagrant\Shim\Command\RunCommand;
 use Vagrant\Shim\Command\ShimCommand;
 use Vagrant\Shim\Command\UninstallCommand;
@@ -19,6 +20,7 @@ $manager->registerCommands($console, array(
     new DisableCommand(),
     new EnableCommand(),
     new InstallCommand(),
+    new ListCommand(),
     new RunCommand(),
     new ShimCommand(),
     new UninstallCommand(),
