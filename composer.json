@@ -1,0 +1,13 @@
+{
+    "name": "ericclemmons/vagrant-shim",
+    "description": "Transparently runs commands through your Vagrant VM.",
+    "require": {
+        "symfony/console": "v2.1.0-RC1"
+    },
+    "authors": [
+        {
+            "name": "Eric Clemmons",
+            "email": "eric@smarterspam.com"
+        }
+    ]
+}
