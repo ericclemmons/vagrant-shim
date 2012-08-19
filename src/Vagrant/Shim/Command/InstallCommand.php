@@ -44,9 +44,5 @@ class InstallCommand extends Command
 
             return 1;
         }
-
-        // Run "shim"
-        $command = $this->getApplication()->find('shim');
-        $command->run(new ArrayInput(array('command' => 'shim')), $output);
     }
 }
