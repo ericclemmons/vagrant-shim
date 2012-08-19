@@ -1,6 +1,6 @@
 # Vagrant Shim
 
-_Version 0.1_
+_Version 0.2_
 
 Transparently runs commands through your [Vagrant](http://vagrantup.com/) VM.
 
