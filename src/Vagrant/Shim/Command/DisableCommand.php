@@ -14,6 +14,12 @@ class DisableCommand extends Command
         $this
             ->setName('disable')
             ->setDescription('Remove shims from $PATH')
+            ->setHelp(<<<HELP
+Disable vagrant-shim by running:
+
+    eval "\$(vagrant-shim disable)"
+HELP
+            )
         ;
     }
 

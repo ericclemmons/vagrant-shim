@@ -14,6 +14,13 @@ class EnableCommand extends Command
         $this
             ->setName('enable')
             ->setDescription('Add shims to $PATH')
+            ->setHelp(<<<HELP
+Load vagrant-shim automatically by adding
+the following to ~/.bash_profile:
+
+    eval "\$(vagrant-shim enable)"
+HELP
+            )
         ;
     }
 
