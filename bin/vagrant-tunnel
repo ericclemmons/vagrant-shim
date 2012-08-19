@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Vagrant\Tunnel\Command\InstallCommand;
+
+$loader = require __DIR__.'/../vendor/autoload.php';
+$loader->add('Vagrant\\Tunnel', __DIR__.'/../src');
+
+$console = new Application();
+$console->add(new InstallCommand());
+$console->run();
