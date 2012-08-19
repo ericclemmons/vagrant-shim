@@ -1,4 +1,4 @@
-# Vagrant Passthrough
+# Vagrant Shim
 
 _Version 0.1_
 
@@ -17,17 +17,23 @@ and various other app-specific commands.
 
 ## Installation
 
-Alias your commonly used commands to run through Vagrant:
+    $ curl -s http://getcomposer.org/installer | php
+    $ php composer.phar install
+    $ ./bin/vagrant-shim install
 
-	$ ./install php phpunit whatever
-	Setting up /usr/local/bin/vphp...Done.
-	Setting up /usr/local/bin/vphpunit...Done.
-	Setting up /usr/local/bin/vwhatever...Done.
 
-Go to somewhere in your app:
+Now add the following to `~/.bash_profile` or `~/.profile`:
 
+    eval "$(vagrant-shim enable)"
+
+
+## Usage
+
+    $ vagrant-shim shim php phpunit ...
 	$ cd ~/Sites/My/App/tests
-	$ vwhatever
+	$ phpunit
+    Shimming...
+    [shimmed output]
 
 Vagrant will run `cd tests && whatever` (assuming `Vagrantfile` is in
 your `App` folder) for you!

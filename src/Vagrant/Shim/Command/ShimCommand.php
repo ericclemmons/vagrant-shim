@@ -1,6 +1,6 @@
 <?php
 
-namespace Vagrant\Tunnel\Command;
+namespace Vagrant\Shim\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +14,7 @@ class ShimCommand extends Command
         $this
             ->setName('shim')
             ->setDescription('Specify programs to shim through Vagrant')
-            ->addArgument('programs', InputArgument::OPTIONAL | InputArgument::IS_ARRAY, 'Programs in the $PATH to tunnel through to Vagrant')
+            ->addArgument('programs', InputArgument::OPTIONAL | InputArgument::IS_ARRAY, 'Programs shim through to Vagrant')
         ;
     }
 

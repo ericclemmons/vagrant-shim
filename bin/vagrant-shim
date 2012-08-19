@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Vagrant\Shim\Manager\ShimManager;
+use Vagrant\Shim\Command\DisableCommand;
+use Vagrant\Shim\Command\EnableCommand;
+use Vagrant\Shim\Command\InstallCommand;
+use Vagrant\Shim\Command\RunCommand;
+use Vagrant\Shim\Command\ShimCommand;
+use Vagrant\Shim\Command\UninstallCommand;
+
+$loader = require __DIR__.'/../vendor/autoload.php';
+$loader->add('Vagrant\\Shim', __DIR__.'/../src');
+
+$console = new Application();
+$manager = new ShimManager($_SERVER['HOME'].'/.vagrant-shim');
+$manager->registerCommands($console, array(
+    new DisableCommand(),
+    new EnableCommand(),
+    new InstallCommand(),
+    new RunCommand(),
+    new ShimCommand(),
+    new UninstallCommand(),
+));
+
+$console->run();

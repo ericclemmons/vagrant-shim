@@ -1,6 +1,6 @@
 <?php
 
-namespace Vagrant\Tunnel\Command;
+namespace Vagrant\Shim\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

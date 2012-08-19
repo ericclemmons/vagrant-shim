@@ -1,10 +1,10 @@
 <?php
 
-namespace Vagrant\Tunnel\Manager;
+namespace Vagrant\Shim\Manager;
 
 use Symfony\Component\Console\Application;
 
-class TunnelManager
+class ShimManager
 {
     /**
      * @var string Root directory for shims
@@ -58,11 +58,11 @@ class TunnelManager
     }
 
     /**
-     * @return array Paths to vagrant-tunnel
+     * @return array Paths to vagrant-shim
      */
     public function getInstalledPaths()
     {
-        return $this->searchPaths('vagrant-tunnel');
+        return $this->searchPaths('vagrant-shim');
     }
 
     public function getPaths()
@@ -84,7 +84,7 @@ class TunnelManager
         $stub = <<<BASH
 #!/usr/bin/env bash
 set -e
-vagrant-tunnel run "\${0##*/}" "\$@"
+vagrant-shim run "\${0##*/}" "\$@"
 BASH;
 
         return $stub;
@@ -104,7 +104,7 @@ BASH;
     }
 
     /**
-     * @var string Installation path for vagrant-tunnel
+     * @var string Installation path for vagrant-shim
      */
     public function install($path)
     {
@@ -116,7 +116,7 @@ BASH;
             throw new \InvalidArgumentException('Path is not writeable');
         }
 
-        $target = realpath(__DIR__.'/../../../../bin/vagrant-tunnel');
+        $target = realpath(__DIR__.'/../../../../bin/vagrant-shim');
         $link   = $path.'/'.basename($target);
 
         return symlink($target, $link);
@@ -130,7 +130,7 @@ BASH;
     }
 
     /**
-     * @return bool If vagrant-tunnel is installed in $PATH
+     * @return bool If vagrant-shim is installed in $PATH
      */
     public function isInstalled()
     {
@@ -143,7 +143,7 @@ BASH;
     }
 
     /**
-     * Inject TunnelManager into console commands
+     * Inject ShimManager into console commands
      */
     public function registerCommands(Application $console, array $commands)
     {
@@ -204,12 +204,12 @@ BASH;
     }
 
     /**
-     * Remove vagrant-tunnel from matching $PATH folders
+     * Remove vagrant-shim from matching $PATH folders
      */
     public function uninstall()
     {
         foreach ($this->getInstalledPaths() as $path) {
-            $link = $path.'/vagrant-tunnel';
+            $link = $path.'/vagrant-shim';
 
             if (file_exists($link)) {
                 if (!unlink($link)) {

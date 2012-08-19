@@ -1,16 +1,16 @@
 <?php
 
-namespace Vagrant\Tunnel\Command;
+namespace Vagrant\Shim\Command;
 
 use Symfony\Component\Console\Command\Command as BaseCommand;
-use Vagrant\Tunnel\Manager\ManagerAwareInterface;
-use Vagrant\Tunnel\Manager\TunnelManager;
+use Vagrant\Shim\Manager\ManagerAwareInterface;
+use Vagrant\Shim\Manager\ShimManager;
 
 class Command extends BaseCommand implements ManagerAwareInterface
 {
     protected $manager;
 
-    public function setManager(TunnelManager $manager)
+    public function setManager(ShimManager $manager)
     {
         $this->manager = $manager;
     }
