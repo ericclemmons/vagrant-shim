@@ -2,17 +2,14 @@
 
 _Version 0.1_
 
+Transparently runs commands through your [Vagrant](http://vagrantup.com/) VM.
 
-## Description
-
-Transparently runs commands through your Vagrant VM.
-
-
-## The Problem
-
-When developing with Vagrant, I am constantly switching between my local terminal
+When developing with Vagrant, I was constantly switching between my local terminal
 when making commits and my Vagrant terminal when running tests, DB commands,
 and various other app-specific commands.
+
+With this tool, I can run my commands locally & remotely from within the same window
+without affecting workflow!
 
 
 ## Installation
@@ -25,7 +22,7 @@ and various other app-specific commands.
 
 ### 2. Install `vagrant-shim`
 
-_Defaults to `/usr/local/bin`_
+_(Defaults to `/usr/local/bin`)_
 
     $ ./bin/vagrant-shim install
 
@@ -35,11 +32,14 @@ _Defaults to `/usr/local/bin`_
     eval "$(vagrant-shim enable)"
 
 
+- - -
+
+
 ## Usage
 
 ### 1. Shim useful programs
 
-    $ vagrant-shim shim php phpunit ...
+    $ vagrant-shim shim phpunit ...
 
 
 ### 2. Run locally, as normal
@@ -79,6 +79,9 @@ running your command inside Vagrant!
 
     $ vagrant-shim enable --help
     ...help text for "enable"
+
+
+- - -
 
 
 ## Author
