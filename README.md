@@ -60,6 +60,18 @@ The shim will automatically `cd` to the correct directory before
 running your command inside Vagrant!
 
 
+### 4. Run remotely, explicitly
+
+    $ vagrant-shim run php -m
+
+
+### 5. Bypass shim
+
+    $ phpunit --no-shim ...
+    Bypassing...
+    ...normal output...
+
+
 ### 4. Get Help
 
     $ vagrant-shim
