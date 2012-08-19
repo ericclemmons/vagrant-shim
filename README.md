@@ -1,6 +1,6 @@
 # Vagrant Passthrough
 
-_by Eric Clemmons_
+_Version 0.1_
 
 
 ## Description
@@ -31,4 +31,9 @@ Go to somewhere in your app:
 
 Vagrant will run `cd tests && whatever` (assuming `Vagrantfile` is in
 your `App` folder) for you!
+
+
+## Author
+
+[Eric Clemmons](http://github.com/ericclemmons)
 
